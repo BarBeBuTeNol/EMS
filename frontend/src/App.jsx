@@ -9,7 +9,7 @@ function App() {
   return (
     <>
       <div>
-        dsdsdsds
+        Just a update section
       </div>
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
