@@ -1,0 +1,29 @@
+/* พื้นฐาน */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #070d29, #0d1a4d, #002233);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    background-image: url('./Photo/_271fc0d6-4aa3-49a7-8b1e-cba00d130866.jpg'); /* path ที่ถูกต้อง */
+    background-size: 70%; /* ทำให้ภาพขยายเต็มหน้าจอ */
+    background-position: center; /* จัดให้อยู่กลาง */
+    background-attachment: fixed; /* ให้ภาพไม่ขยับเมื่อ scroll */
+    color: purple; /* สีตัวอักษร */
+    margin: 0; /* เพิ่ม margin เป็น 0 เพื่อให้แน่ใจว่าไม่มีช่องว่างรอบๆ */
+    padding: 0; /* เพิ่ม padding เป็น 0 เพื่อให้แน่ใจว่าไม่มีช่องว่างรอบๆ */
+  }
+  
+  .container {
+    text-align: center;
+    width: 100%;
+    padding: 20px;
+    max-width: 600px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+  }
