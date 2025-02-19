@@ -1,0 +1,95 @@
+.sidebars {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background-color: #333;
+  color: #fff;
+  overflow: hidden;
+  transition: width 0.3s ease, background-color 0.3s ease, visibility 0.3s ease, opacity 0.3s ease;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+}
+
+.sidebars.collapsed {
+  width: 60px;
+  visibility: visible;
+  opacity: 1;
+}
+
+.sidebars.expanded {
+  width: 250px;
+  visibility: visible;
+  opacity: 1;
+}
+
+.toggle-btn {
+  position: absolute;
+  top: 20px;
+  right: -15px;
+  width: 30px;
+  height: 30px;
+  background-color: #444;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.toggle-btn:hover {
+  background-color: #555;
+}
+
+.menu {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  margin-top: 60px;
+  visibility: visible;
+  opacity: 1;
+  transition: visibility 0.3s ease, opacity 0.3s ease;
+}
+
+.menu li {
+  padding: 15px 20px;
+  text-align: left;
+  transition: background-color 0.3s ease, padding 0.3s ease;
+}
+
+.menu li a {
+  text-decoration: none;
+  color: #fff;
+  display: block;
+  font-size: 1rem;
+}
+
+.menu li:hover {
+  background-color: #444;
+}
+
+.menu li a:hover {
+  color: #1e90ff;
+}
+
+.sidebars.expanded .menu li {
+  padding-left: 40px;
+}
+
+.sidebars.collapsed {
+  background-color: transparent;
+  box-shadow: none;
+}
+
+.sidebars.collapsed .menu li {
+  visibility: hidden;
+  opacity: 0;
+}
+
+.sidebars.collapsed .menu li a {
+  font-size: 0.8rem;
+  text-align: center;
+}

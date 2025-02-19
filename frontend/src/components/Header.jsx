@@ -1,3 +1,6 @@
+import React from 'react';
+import './Header.css'; // นำเข้า CSS ของ Button
+
 function Header() {
     return (
         <header className="header">

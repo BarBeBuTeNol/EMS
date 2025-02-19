@@ -1,0 +1,97 @@
+/* ปรับพื้นหลังและการตกแต่งเฉพาะหน้า Main_HR */
+.ems-page {
+  font-family: "Roboto", sans-serif;
+  padding: 20px;
+  background: linear-gradient(
+    to right,
+    black,
+    white
+  ); /* สีพื้นหลังแบบ Gradient จากดำไปขาว */
+  min-height: 100vh;
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* จัดเนื้อหาทั้งหมดให้ยืดเต็มหน้าจอ */
+}
+
+/* Search Bar */
+.search-container {
+  margin: 250px 0;
+  text-align: center;
+}
+
+.search-bar {
+  width: 50%;
+  padding: 15px;
+  margin-left: 100px;
+  font-size: 18px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: border 0.3s ease;
+  text-align: center;
+}
+
+.search-bar:focus {
+  border-color: #00796b;
+  outline: none;
+}
+
+.search-btn {
+  padding: 10px 20px;
+  margin-left: 10px;
+  font-size: 18px;
+  background-color: #0069d9;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.search-btn:hover {
+  background-color: #004d40;
+}
+
+/* แสดงข้อมูลพนักงาน */
+.employee-info {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.employee-info p {
+  font-size: 18px;
+  margin: 5px 0;
+  color: #333;
+}
+
+.new-user-container {
+  max-width: 500px;
+  margin: 0 auto;
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.input-text,
+.input-text-center {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.input-field-new-user {
+  width: 100%;
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* จัดการการแสดงผลของปุ่ม */
+@media screen and (max-width: 768px) {
+  .buttons .btn {
+    width: 100%;
+  }
+}

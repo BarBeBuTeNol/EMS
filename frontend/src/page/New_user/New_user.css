@@ -1,0 +1,208 @@
+/* สไตล์สำหรับ New User Container */
+.new-user-container {
+  font-family: "Arial", sans-serif;
+  background: linear-gradient(
+    135deg,
+    #74ebd5 0%,
+    #9face6 100%
+  ); /* สีพื้นหลังที่สวยงาม */
+  border-radius: 12px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1); /* เงาลึกเบาๆ */
+  padding: 40px;
+  width: 50%;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+  animation: slideIn 0.5s ease-out; /* เอฟเฟกต์แอนิเมชั่นเมื่อเข้ามา */
+  margin: 0 auto; /* ทำให้คอนเทนต์อยู่กลาง */
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.new-user-container h1 {
+  font-size: 36px;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 20px;
+  text-transform: uppercase; /* ให้ตัวอักษรเป็นตัวพิมพ์ใหญ่ทั้งหมด */
+  letter-spacing: 2px; /* เว้นระยะตัวอักษร */
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); /* เพิ่มเงาเบาๆ ให้กับข้อความ */
+}
+
+.new-user-container .input-text,
+.new-user-container .input-text-center {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+.new-user-container .input-field-new-user {
+  padding: 15px;
+  font-size: 16px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  outline: none;
+  text-align: center;
+  transition: all 0.3s ease; /* เพิ่มการเปลี่ยนแปลงแบบเนียน ๆ */
+  background-color: #fff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* เงาเบาๆ */
+}
+
+.new-user-container .input-field-new-user:focus {
+  border-color: #74ebd5;
+  box-shadow: 0 0 8px rgba(116, 235, 213, 0.5); /* เพิ่มเงาเมื่อโฟกัส */
+}
+
+.new-user-container .input-field-new-user::placeholder {
+  color: #aaa;
+}
+
+.new-user-container .button-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.new-user-container .button-cancel,
+.new-user-container .button-done {
+  width: 48%;
+  padding: 14px;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.3s ease, background-color 0.3s ease,
+    box-shadow 0.3s ease;
+  position: relative;
+  z-index: 2;
+}
+
+.new-user-container .button-cancel {
+  background-color: #e0e0e0;
+  color: #333;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* เงาเบาๆ */
+}
+
+.new-user-container .button-done {
+  background-color: #74ebd5;
+  color: white;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* เงาเบาๆ */
+}
+
+.new-user-container .button-cancel:hover {
+  background-color: #bdbdbd;
+  transform: translateY(-3px); /* เคลื่อนไหวเมื่อ hover */
+}
+
+.new-user-container .button-done:hover {
+  background-color: #64c2b3;
+  transform: translateY(-3px); /* เคลื่อนไหวเมื่อ hover */
+}
+
+.new-user-container .button-cancel:active,
+.new-user-container .button-done:active {
+  transform: translateY(2px); /* กดแล้วจะยุบเล็กลง */
+}
+
+/* เอฟเฟกต์พื้นหลัง */
+.new-user-container::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.2); /* เอฟเฟกต์โปร่งแสง */
+  border-radius: 12px;
+  z-index: -1;
+  animation: pulse 3s infinite; /* เอฟเฟกต์การกระพริบ */
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.3;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.7;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0.3;
+  }
+}
+
+/* Responsive Breakpoints */
+
+/* สำหรับหน้าจอเล็ก (มือถือ) */
+@media (max-width: 600px) {
+  .new-user-container {
+    width: 90%; /* ปรับความกว้างให้เหมาะสมกับหน้าจอมือถือ */
+    padding: 25px;
+    height: auto;
+  }
+
+  .new-user-container h1 {
+    font-size: 28px; /* ลดขนาดของหัวข้อ */
+    letter-spacing: 1px;
+  }
+
+  .new-user-container .input-field-new-user {
+    font-size: 14px; /* ลดขนาดของช่องกรอกข้อมูล */
+    padding: 12px;
+  }
+
+  .new-user-container .button-cancel,
+  .new-user-container .button-done {
+    font-size: 14px; /* ปรับขนาดฟอนต์ของปุ่ม */
+    padding: 12px;
+  }
+
+  .new-user-container .button-container {
+    flex-direction: column; /* แสดงปุ่มในแนวตั้ง */
+    gap: 15px;
+  }
+
+  .new-user-container .button-cancel,
+  .new-user-container .button-done {
+    width: 100%; /* ให้ปุ่มกว้างเต็มหน้าจอ */
+  }
+}
+
+/* สำหรับหน้าจอกลาง (แท็บเล็ต) */
+@media (max-width: 1024px) {
+  .new-user-container {
+    width: 70%; /* ปรับความกว้างให้พอดีกับหน้าจอแท็บเล็ต */
+    padding: 35px;
+  }
+
+  .new-user-container h1 {
+    font-size: 32px; /* ลดขนาดของหัวข้อให้เหมาะสม */
+  }
+
+  .new-user-container .input-field-new-user {
+    font-size: 15px; /* ปรับขนาดฟอนต์ของช่องกรอกข้อมูล */
+    padding: 14px;
+  }
+
+  .new-user-container .button-cancel,
+  .new-user-container .button-done {
+    font-size: 15px;
+    padding: 13px;
+  }
+
+  .new-user-container .button-container {
+    gap: 15px;
+  }
+}

@@ -1,0 +1,132 @@
+/* Education.css */
+
+/* ใส่ชื่อคลาสที่เฉพาะเจาะจงกับหน้า Education */
+.education-background {
+    background: linear-gradient(135deg, #070d29, #1b1f3a, #0d1a4d, #002233);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Roboto', sans-serif;
+}
+
+.education-container {
+    background: white;
+    width: 100%;
+    max-width: 600px;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+}
+
+.education-container:hover {
+    transform: scale(1.05);
+}
+
+.education-head {
+    font-size: 28px;
+    font-weight: 600;
+    text-align: center;
+    color: #4e73df;
+    margin-bottom: 25px;
+    letter-spacing: 1px;
+}
+
+.education-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.education-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+.education-input-group {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.education-input-group label {
+    font-weight: 500;
+    margin-bottom: 8px;
+    color: #333;
+}
+
+.education-input-field {
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 14px;
+    transition: all 0.2s ease;
+}
+
+.education-input-field:focus {
+    border-color: #4e73df;
+    box-shadow: 0 0 5px rgba(78, 115, 223, 0.5);
+    outline: none;
+}
+
+.education-extra-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+    gap: 10px;
+}
+
+.education-action-button,
+.education-back-button,
+.education-save-done-button {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.education-action-button {
+    background-color: #1d72b8;
+    color: white;
+}
+
+.education-back-button {
+    background-color: #6c757d;
+    color: white;
+}
+
+.education-save-done-button {
+    background-color: #28a745;
+    color: white;
+}
+
+.education-action-button:hover,
+.education-back-button:hover,
+.education-save-done-button:hover {
+    opacity: 0.9;
+    transform: translateY(-3px);
+}
+
+.education-action-button:active,
+.education-back-button:active,
+.education-save-done-button:active {
+    transform: translateY(2px);
+}
+
+.education-save-done-button {
+    background-color: #4CAF50;
+    transition: transform 0.4s ease;
+}
+
+.education-save-done-button:hover {
+    transform: scale(1.1);
+}

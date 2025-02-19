@@ -1,0 +1,535 @@
+/* การจัดการพื้นหลังของทั้งหน้า */
+.background {
+    font-family: "Arial", sans-serif;
+    display: flex;
+    justify-content: center; /* จัดให้อยู่กลางแนวนอน */
+    align-items: center;     /* จัดให้อยู่กลางแนวตั้ง */
+    background: linear-gradient(135deg, #070d29, #1b1f3a, #0d1a4d, #002233);
+    color: white;
+    background-size: cover;    /* ทำให้พื้นหลังครอบคลุม */
+    background-position: center;
+    background-attachment: fixed; /* ทำให้พื้นหลังไม่เลื่อนไปตามการเลื่อนหน้า */
+    animation: gradient-animation 10s ease infinite;
+    width: 100%;                /* ทำให้พื้นหลังขยายเต็มหน้าจอ */
+    height: 100vh;              /* ทำให้พื้นหลังสูงเท่ากับความสูงของหน้าจอ */
+}
+
+/* สำหรับ container หลัก */
+.add-user-infor-container {
+    width: 50%; /* กำหนดความกว้าง */
+    height: auto; /* ความสูงจะปรับตามเนื้อหา */
+    margin: 0; /* ลบ margin ที่จะทำให้เบี่ยงเบนจากกลาง */
+    padding: 30px;
+    background: linear-gradient(135deg, #6a5acd, #483d8b); /* เปลี่ยนพื้นหลังเป็น gradient สวยๆ */
+    border-radius: 20px;
+    box-shadow: 0px 8px 25px rgba(0, 0, 0, 0.1); /* Softer shadow for depth */
+    border: 1px solid #d3dce6;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* เพิ่ม transition */
+    max-width: 100%; /* ป้องกันไม่ให้เกินขอบเขต */
+    box-sizing: border-box; /* รวม padding เข้าไปในขนาดรวม */
+    margin: auto; /* ให้ container อยู่กลาง */
+}
+
+/* เมื่อ hover ที่ container */
+.add-user-infor-container:hover {
+    transform: scale(1.02); /* เพิ่มลูกเล่นขยายตัวเล็กน้อยเมื่อ hover */
+    box-shadow: 0px 12px 40px rgba(0, 0, 0, 0.2); /* เพิ่มความคมชัดเมื่อ hover */
+}
+
+
+/* ข้อความในส่วนหัว */
+.head {
+    text-align: center; /* จัดข้อความให้อยู่กลาง */
+    font-size: 1.8rem; /* ลดขนาดฟอนต์ให้เหมาะสมกับขนาดหน้าจอ */
+    color: #ffffff; /* สีตัวอักษรเป็นสีขาว */
+    font-weight: 600; /* ตัวหนา */
+    border: 3px solid greenyellow; /* ขอบของกล่องสีใหม่ */
+    border-radius: 25px; /* มุมโค้งนุ่มๆ */
+    text-transform: uppercase; /* ตัวพิมพ์ใหญ่ทั้งหมด */
+    letter-spacing: 2px; /* เพิ่มระยะห่างระหว่างตัวอักษร */
+    text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3), 0 0 20px rgba(0, 0, 0, 0.1); /* เพิ่มเงาแบบเบาบาง */
+    background: linear-gradient(45deg, #6ee7b7, #3b82f6); /* ไล่สีจากสีเขียวอ่อนถึงฟ้า */
+    -webkit-background-clip: text; /* ทำให้พื้นหลังเป็นสี gradient ของตัวอักษร */
+    color: transparent; /* ทำให้ตัวอักษรโปร่งใส เพื่อให้เห็นเฉพาะ gradient */
+    padding: 12px 24px; /* เพิ่มระยะห่างรอบข้อความ */
+    margin-bottom: 20px; /* ลดระยะห่างจากส่วนอื่นๆ */
+    font-family: 'Poppins', sans-serif; /* ฟอนต์ที่ดูทันสมัย */
+    transition: all 0.3s ease; /* เพิ่มการเปลี่ยนแปลงเมื่อ hover */
+}
+
+/* เพิ่มเอฟเฟกต์ hover */
+.head:hover {
+    color: burlywood; /* เปลี่ยนสีข้อความเป็นสีขาวเมื่อ hover */
+    text-shadow: 3px 3px 15px rgba(0, 0, 0, 0.5), 0 0 25px b; /* เพิ่มเงาเมื่อ hover */
+    transform: scale(1.02); /* ขยายข้อความเล็กน้อยเมื่อ hover */
+}
+
+
+/* จัดตำแหน่งของ input-group ให้อยู่กลาง */
+.input-group {
+    display: flex;
+    justify-content: center; /* จัดกลางในแนวนอน */
+    align-items: center;     /* จัดกลางในแนวตั้ง */
+    width: 100%; /* ป้องกันการเกินขอบเขต */
+    margin-bottom: 15px; /* เพิ่ม margin ด้านล่าง */
+}
+
+/* จัดให้ input fields อยู่ในบรรทัดเดียวกัน */
+.double-input {
+    display: flex;
+    justify-content: space-between;  /* จัดให้ช่องในบรรทัดเดียวกันกระจายเต็มพื้นที่ */
+    gap: 15px; /* ช่องว่างระหว่าง input */
+    width: 100%;  /* ขยายพื้นที่ให้เต็ม */
+}
+
+/* ปรับขนาดของ input fields ให้อยู่ในขนาดเท่ากัน */
+.input-half {
+    flex: 1; /* แต่ละช่องจะมีขนาดที่เท่ากัน */
+    min-width: 0; /* ให้ input ไม่เกินขอบเขต */
+}
+
+.input-field-page {
+    width: 100%; /* ใช้ความกว้างเต็มช่องที่จัดให้ */
+    padding: 10px;
+    margin-bottom: 15px;
+    text-align: center;
+    border: 1px solid #dde1e7; /* กรอบสีอ่อน */
+    border-radius: 12px;
+    font-size: 16px;
+    background-color: #f0f4f8; /* พื้นหลังสีอ่อน (เทาอ่อน) */
+    color: #333; /* ข้อความสีดำเข้ม */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); /* เงาเล็กน้อย */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* เมื่อ focus อยู่ใน input field */
+.input-field-page:focus {
+    border-color: #4e92d7; /* เมื่อ focus สีกรอบเป็นฟ้า */
+    box-shadow: 0 0 8px rgba(78, 146, 215, 0.5); /* เพิ่มเงาฟ้าสดใสเมื่อ focus */
+    outline: none; /* ไม่มีขอบเสริม */
+}
+
+.input-group label {
+    display: block;
+    text-align: center;
+    font-size: 18px;
+    margin-bottom: 8px;
+    color:gold; /* ใช้สีน้ำเงินเข้ม */
+    font-weight: 600;
+}
+
+/* ปรับปรุงปุ่ม */
+button.action-button {
+    background-color: #4299e1;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    margin: 5px;
+    width: 150px;
+}
+
+button.action-button:hover {
+    background-color: #2b6cb0; /* เปลี่ยนสีเมื่อ hover */
+    transform: translateY(-2px); /* ทำให้ปุ่มดูเด้ง */
+}
+
+button.action-button:active {
+    background-color: #2b6cb0; /* สีเมื่อคลิก */
+    transform: translateY(2px); /* ทำให้ปุ่มดูลดลง */
+}
+
+/* ปรับการจัดรูปแบบของปุ่มอัปโหลด */
+/* ปรับการจัดรูปแบบของปุ่มอัปโหลด */
+.upload-button {
+    background-color: #48bb78; /* สีพื้นหลังของปุ่ม */
+    color: white; /* สีตัวหนังสือ */
+    padding: 12px 20px; /* ขนาดของปุ่ม */
+    border-radius: 8px; /* มุมโค้ง */
+    border: none; /* เอาขอบออก */
+    font-size: 16px; /* ขนาดตัวหนังสือ */
+    cursor: pointer; /* เปลี่ยนเคอร์เซอร์เมื่อ hover */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* เพิ่มเอฟเฟกต์เมื่อ hover */
+    margin-top: 5px; /* ระยะห่างจากรูปภาพ */
+}
+
+/* เพิ่มเอฟเฟกต์เมื่อ hover และ active */
+.upload-button:hover {
+    background-color: #38a169; /* สีปุ่มเมื่อ hover */
+    transform: translateY(-2px); /* เอฟเฟกต์ให้ปุ่มเด้งขึ้น */
+}
+
+.upload-button:active {
+    background-color: #38a169; /* สีปุ่มเมื่อกด */
+    transform: translateY(2px); /* เอฟเฟกต์เมื่อกดปุ่ม */
+}
+
+/* ปรับการจัดรูปแบบของส่วนที่มีรูปภาพ */
+.image-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+/* ปรับกรอบของภาพ */
+.image-placeholder {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #e2e8f0;
+    height: 350px;
+    width: 60%;
+    border-radius: 12px;
+    border: 2px dashed #cbd5e0;
+    margin-bottom: 15px;
+    overflow: hidden;
+}
+
+/* รูปภาพในกรอบ */
+.uploaded-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* ให้ภาพไม่บิดเบือน */
+    border-radius: 10px;
+}
+
+/* จัดการกับปุ่มต่างๆ ในการทำงาน */
+.extra-buttons {
+    display: flex;
+    justify-content: center;  /* จัดปุ่มให้อยู่กลาง */
+    flex-wrap: wrap;          /* รองรับการย่อขนาดหน้าจอ */
+    gap: 15px;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.extra-buttons button {
+    width: 120px;
+    padding: 12px 20px;
+    background-color: #4299e1;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.extra-buttons button:hover {
+    background-color: #2b6cb0;
+}
+
+/* ปรับการจัดรูปแบบของปุ่ม Save และ Done */
+button.save-done-button {
+    background-color: #48bb78; /* สีเขียวสำหรับปุ่ม Save และ Done */
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    margin: 5px;
+    width: 120px;
+}
+
+button.save-done-button:hover {
+    background-color: #38a169; /* สีเขียวเมื่อ hover */
+    transform: translateY(-2px); /* เอฟเฟกต์เด้ง */
+}
+
+button.save-done-button:active {
+    background-color: #2f855a; /* สีเขียวเข้มเมื่อคลิก */
+    transform: translateY(2px); /* เอฟเฟกต์เมื่อคลิก */
+}
+
+/* ปรับการจัดรูปแบบของปุ่ม Back */
+button.back-button {
+    background-color: #e53e3e; /* สีแดงสำหรับปุ่ม Back */
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    margin: 5px;
+    width: 120px;
+}
+
+button.back-button:hover {
+    background-color: #c53030; /* สีแดงเข้มเมื่อ hover */
+    transform: translateY(-2px); /* เอฟเฟกต์เด้ง */
+}
+
+button.back-button:active {
+    background-color: #9b2c2c; /* สีแดงเข้มเมื่อคลิก */
+    transform: translateY(2px); /* เอฟเฟกต์เมื่อคลิก */
+}
+
+/* สไตล์ Sidebar */
+.sidebar {
+  width: 250px;
+  background-color: #333;
+  color: white;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  padding-top: 20px;
+  z-index: 1;
+  transform: translateX(-100%); /* เริ่มต้น Sidebar หายไป */
+  transition: transform 0.3s ease; /* การเคลื่อนไหวเมื่อเปิด/ปิด Sidebar */
+}
+
+.sidebar.open {
+  transform: translateX(0); /* เมื่อ Sidebar เปิด, เลื่อนเข้ามาจากซ้าย */
+}
+
+.sidebar h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.sidebar ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.sidebar ul li {
+  padding: 10px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.sidebar ul li:hover {
+  background-color: #575757;
+}
+
+/* ปุ่ม Toggle */
+.toggle-btn {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  padding: 10px;
+  background-color: #333;
+  color: white;
+  border: none;
+  cursor: pointer;
+  z-index: 2; /* ให้ปุ่มอยู่เหนือ Sidebar */
+}
+
+.toggle-btn:hover {
+  background-color: #575757;
+}
+/* Sidebar Styling */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: -250px;
+    width: 250px;
+    height: 100%;
+    background-color: #333;
+    color: white;
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    transition: left 0.3s ease;
+    z-index: 1000;
+  }
+  
+  .sidebar.visible {
+    left: 0;
+  }
+  
+  .sidebar ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .sidebar ul li {
+    margin: 15px 0;
+    cursor: pointer;
+    font-size: 18px;
+    transition: color 0.3s ease;
+  }
+  
+  .sidebar ul li:hover {
+    color: #ffb703;
+  }
+  
+  .close-sidebar-btn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 18px;
+    margin-bottom: 20px;
+    cursor: pointer;
+  }
+  
+  /* Toggle Sidebar Button */
+  .toggle-sidebar-btn {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    z-index: 1001;
+    transition: background-color 0.3s ease;
+  }
+  
+  .toggle-sidebar-btn:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Adjust Page Content */
+  .page-container.sidebar-open .background {
+    margin-left: 250px; /* Move content when sidebar is open */
+    transition: margin-left 0.3s ease;
+  }
+  
+  /* Content Styling */
+  .background {
+    padding: 20px;
+  }
+  
+  .new-user-container {
+    max-width: 500px;
+    margin: 0 auto;
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  }
+  
+  .input-text,
+  .input-text-center {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .input-field-new-user {
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .button-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+  
+  .button-cancel,
+  .button-done {
+    padding: 10px 20px;
+    font-size: 14px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .button-cancel {
+    background-color: #ff6b6b;
+    color: white;
+  }
+  
+  .button-done {
+    background-color: #4caf50;
+    color: white;
+  }
+  
+  .button-cancel:hover {
+    background-color: #e63946;
+  }
+  
+  .button-done:hover {
+    background-color: #388e3c;
+  }
+  
+
+/* Media Queries สำหรับ Mobile */
+@media (max-width: 768px) {
+    #user-page .background {
+        height: auto;
+    }
+    #user-page .add-user-infor-container {
+        width: 90%;
+        padding: 15px;
+    }
+
+    #user-page .head {
+        font-size: 1.4rem;
+    }
+
+    #user-page .input-group {
+        flex-direction: column;
+    }
+
+    #user-page .input-field-page {
+        font-size: 14px;
+    }
+
+    #user-page .double-input {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    #user-page .image-placeholder {
+        width: 80%;
+        height: 250px;
+    }
+
+    #user-page button {
+        width: 100%;
+    }
+}
+
+/* Media Queries สำหรับ Tablet */
+@media (max-width: 1024px) {
+    #user-page .background {
+        height: auto;
+    }
+    #user-page .add-user-infor-container {
+        width: 70%;
+    }
+
+    #user-page .head {
+        font-size: 1.6rem;
+    }
+
+    #user-page .image-placeholder {
+        width: 70%;
+        height: 300px;
+    }
+
+    #user-page button {
+        width: 150px;
+    }
+}
+
+/* Media Queries สำหรับ Desktop หรือใหญ่กว่านี้ */
+@media (min-width: 1200px) {
+    #user-page .background {
+        min-height: 100vh;
+    }
+    #user-page .add-user-infor-container {
+        width: 50%;
+        padding: 30px;
+    }
+
+    #user-page .head {
+        font-size: 1.8rem;
+    }
+}

@@ -1,24 +1,24 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import './Button.css'; // นำเข้า CSS ของ Button
 
 function Button() {
-  const navigate = useNavigate(); // เรียก useNavigate ตรงๆ ไม่ต้อง destructure
+  const navigate = useNavigate();
 
   const handleLoginClick = () => {
-    navigate('/login'); // เปลี่ยนไปหน้า "/login"
+    navigate('/login');
   };
 
   const handleCompanyClick = () => {
-    window.location.href = 'https://www.companywebsite.com'; // ลิงก์ไปเว็บไซต์อื่น
+    window.location.href = 'https://www.companywebsite.com';
   };
 
   return (
-    <div className="button">
-      {/* เพิ่ม onClick ให้ปุ่ม */}
-      <button type="button" onClick={handleLoginClick}>
+    <div className="button-container">
+      <button className="button" onClick={handleLoginClick}>
         Login
       </button>
-      <button type="button" onClick={handleCompanyClick}>
+      <button className="button" onClick={handleCompanyClick}>
         Company Website
       </button>
     </div>

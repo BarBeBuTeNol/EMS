@@ -1,0 +1,81 @@
+/* ตั้งค่าพื้นฐาน */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.home-page {
+  font-family: 'Arial', sans-serif;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #070d29, #1b1f3a, #0d1a4d, #002233);
+  color: white;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  animation: gradient-animation 10s ease infinite;
+}
+
+/* Home Container */
+.home-page .home-container {
+  text-align: center;
+  width: 90%;
+  max-width: 600px;
+  background: #0d1a4d;
+  padding: 40px;
+  margin: 50px auto;
+  border-radius: 20px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 1s ease-in-out;
+  position: relative;
+  overflow: hidden;
+  box-sizing: border-box;
+  max-height: 90vh;
+}
+
+.home-page .home-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(0, 98, 204, 0.1), rgba(0, 86, 179, 0.1));
+  z-index: -1; /* ให้พื้นหลังมีตำแหน่งอยู่ด้านล่าง */
+}
+
+/* ทำให้พื้นหลังเป็น Gradient ที่เคลื่อนไหว */
+@keyframes gradient-animation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Fade-in Animation */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px); /* ขยับขึ้นเล็กน้อย */
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0); /* กลับมาตำแหน่งเดิม */
+  }
+}
+
+/* ปรับปรุงการแสดงผลบนหน้าจอเล็ก */
+@media (max-width: 768px) {
+  .home-page .home-container {
+    padding: 20px;
+    margin: 30px auto; /* ลดระยะห่างบนหน้าจอเล็ก */
+  }
+}

@@ -1,0 +1,403 @@
+/* การจัดการพื้นหลังของทั้งหน้า */
+.em-infor-background {
+  font-family: "Arial", sans-serif;
+  display: flex;
+  justify-content: center; /* จัดให้อยู่กลางแนวนอน */
+  align-items: center; /* จัดให้อยู่กลางแนวตั้ง */
+  background: linear-gradient(135deg, #070d29, #1b1f3a, #0d1a4d, #002233);
+  color: white;
+  background-size: cover; /* ทำให้พื้นหลังครอบคลุม */
+  background-position: center;
+  background-attachment: fixed; /* ทำให้พื้นหลังไม่เลื่อนไปตามการเลื่อนหน้า */
+  animation: gradient-animation 10s ease infinite;
+  width: 100%; /* ทำให้พื้นหลังขยายเต็มหน้าจอ */
+  height: 100vh; /* ทำให้พื้นหลังสูงเท่ากับความสูงของหน้าจอ */
+}
+
+/* สำหรับ container หลัก */
+.em-infor-container {
+  width: 50%; /* กำหนดความกว้าง */
+  height: 95%;
+  margin: 0; /* ลบ margin ที่จะทำให้เบี่ยงเบนจากกลาง */
+  padding: 30px;
+  background: linear-gradient(
+    135deg,
+    #6a5acd,
+    #483d8b
+  ); /* เปลี่ยนพื้นหลังเป็น gradient สวยๆ */
+  border-radius: 20px;
+  box-shadow: 0px 8px 25px rgba(0, 0, 0, 0.1); /* Softer shadow for depth */
+  border: 1px solid #d3dce6;
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* เพิ่ม transition */
+  max-width: 100%; /* ป้องกันไม่ให้เกินขอบเขต */
+  box-sizing: border-box; /* รวม padding เข้าไปในขนาดรวม */
+}
+
+/* เมื่อ hover ที่ container */
+.em-infor-container:hover {
+  transform: scale(1.02); /* เพิ่มลูกเล่นขยายตัวเล็กน้อยเมื่อ hover */
+  box-shadow: 0px 12px 40px rgba(0, 0, 0, 0.2); /* เพิ่มความคมชัดเมื่อ hover */
+}
+
+/* ข้อความในส่วนหัว */
+.em-infor-head {
+  text-align: center; /* จัดข้อความให้อยู่กลาง */
+  font-size: 1.8rem; /* ลดขนาดฟอนต์ให้เหมาะสมกับขนาดหน้าจอ */
+  color: #ffffff; /* สีตัวอักษรเป็นสีขาว */
+  font-weight: 600; /* ตัวหนา */
+  border: 3px solid greenyellow; /* ขอบของกล่องสีใหม่ */
+  border-radius: 25px; /* มุมโค้งนุ่มๆ */
+  text-transform: uppercase; /* ตัวพิมพ์ใหญ่ทั้งหมด */
+  letter-spacing: 2px; /* เพิ่มระยะห่างระหว่างตัวอักษร */
+  text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3), 0 0 20px rgba(0, 0, 0, 0.1); /* เพิ่มเงาแบบเบาบาง */
+  background: linear-gradient(
+    45deg,
+    #6ee7b7,
+    #3b82f6
+  ); /* ไล่สีจากสีเขียวอ่อนถึงฟ้า */
+  -webkit-background-clip: text; /* ทำให้พื้นหลังเป็นสี gradient ของตัวอักษร */
+  color: transparent; /* ทำให้ตัวอักษรโปร่งใส เพื่อให้เห็นเฉพาะ gradient */
+  padding: 12px 24px; /* เพิ่มระยะห่างรอบข้อความ */
+  margin-bottom: 20px; /* ลดระยะห่างจากส่วนอื่นๆ */
+  font-family: "Poppins", sans-serif; /* ฟอนต์ที่ดูทันสมัย */
+  transition: all 0.3s ease; /* เพิ่มการเปลี่ยนแปลงเมื่อ hover */
+}
+
+/* เพิ่มเอฟเฟกต์ hover */
+.em-infor-head:hover {
+  color: burlywood; /* เปลี่ยนสีข้อความเป็นสีขาวเมื่อ hover */
+  text-shadow: 3px 3px 15px rgba(0, 0, 0, 0.5), 0 0 25px b; /* เพิ่มเงาเมื่อ hover */
+  transform: scale(1.02); /* ขยายข้อความเล็กน้อยเมื่อ hover */
+}
+
+/* จัดตำแหน่งของ input-group ให้อยู่กลาง */
+.em-infor-input-group {
+  display: flex;
+  justify-content: center; /* จัดกลางในแนวนอน */
+  align-items: center; /* จัดกลางในแนวตั้ง */
+  width: 100%; /* ป้องกันการเกินขอบเขต */
+  margin-bottom: 15px; /* เพิ่ม margin ด้านล่าง */
+}
+
+/* จัดให้ input fields อยู่ในบรรทัดเดียวกัน */
+.em-infor-double-input {
+  display: flex;
+  justify-content: space-between; /* จัดให้ช่องในบรรทัดเดียวกันกระจายเต็มพื้นที่ */
+  gap: 15px; /* ช่องว่างระหว่าง input */
+  width: 100%; /* ขยายพื้นที่ให้เต็ม */
+}
+
+/* ปรับขนาดของ input fields ให้อยู่ในขนาดเท่ากัน */
+.em-infor-input-half {
+  flex: 1; /* แต่ละช่องจะมีขนาดที่เท่ากัน */
+  min-width: 0; /* ให้ input ไม่เกินขอบเขต */
+}
+
+.em-infor-input-field {
+  width: 100%; /* ใช้ความกว้างเต็มช่องที่จัดให้ */
+  padding: 10px;
+  margin-bottom: 15px;
+  text-align: center;
+  border: 1px solid #dde1e7; /* กรอบสีอ่อน */
+  border-radius: 12px;
+  font-size: 16px;
+  background-color: #f0f4f8; /* พื้นหลังสีอ่อน (เทาอ่อน) */
+  color: #333; /* ข้อความสีดำเข้ม */
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); /* เงาเล็กน้อย */
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* เมื่อ focus อยู่ใน input field */
+.em-infor-input-field:focus {
+  border-color: #4e92d7; /* เมื่อ focus สีกรอบเป็นฟ้า */
+  box-shadow: 0 0 8px rgba(78, 146, 215, 0.5); /* เพิ่มเงาฟ้าสดใสเมื่อ focus */
+  outline: none; /* ไม่มีขอบเสริม */
+}
+
+.em-infor-input-group label {
+  display: block;
+  text-align: center;
+  font-size: 18px;
+  margin-bottom: 8px;
+  color: gold; /* ใช้สีน้ำเงินเข้ม */
+  font-weight: 600;
+}
+
+/* จัดให้ input fields ในส่วน Salary & Benefit อยู่ในบรรทัดเดียวกัน */
+.em-infor-salary-benefit-input-group {
+  display: flex;
+  justify-content: space-between; /* จัดให้ช่องในบรรทัดเดียวกันกระจายเต็มพื้นที่ */
+  gap: 10px; /* ช่องว่างระหว่าง input */
+  width: 100%; /* ขยายพื้นที่ให้เต็ม */
+}
+
+/* ปรับขนาดของ input fields สำหรับ Salary & Benefit */
+.em-infor-salary-benefit-input-half {
+  flex: 1; /* แต่ละช่องจะมีขนาดที่เท่ากัน */
+  min-width: 0; /* ให้ input ไม่เกินขอบเขต */
+  font-size: 14px; /* ลดขนาดตัวอักษรในช่อง input */
+}
+
+/* ปรับขนาด input fields ให้เหมาะสม */
+.em-infor-salary-benefit-input-field {
+  width: 100%; /* ใช้ความกว้างเต็มช่องที่จัดให้ */
+  padding: 8px;
+  margin-bottom: 15px;
+  text-align: center;
+  border: 1px solid #dde1e7; /* กรอบสีอ่อน */
+  border-radius: 12px;
+  font-size: 14px; /* ลดขนาดตัวอักษร */
+  background-color: #f0f4f8; /* พื้นหลังสีอ่อน (เทาอ่อน) */
+  color: #333; /* ข้อความสีดำเข้ม */
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); /* เงาเล็กน้อย */
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* ปรับขนาด label สำหรับ Salary & Benefit */
+.em-infor-salary-benefit-label {
+  font-size: 16px; /* ลดขนาด font สำหรับ label */
+  color: gold; /* สีของ label */
+  font-weight: 600;
+  text-align: left; /* จัดให้ label เรียงทางซ้าย */
+}
+
+/* จัดปุ่มให้อยู่ตรงกลาง */
+.em-infor-extra-buttons {
+  display: flex;
+  justify-content: center; /* จัดให้ปุ่มอยู่กลางแนวนอน */
+  align-items: center; /* จัดให้ปุ่มอยู่กลางแนวตั้ง */
+  flex-wrap: wrap; /* เมื่อหน้าจอเล็กลงให้ปุ่มไปลงบรรทัดใหม่ */
+  gap: 10px; /* เพิ่มช่องว่างระหว่างปุ่ม */
+  width: 100%;
+  margin-top: 20px; /* เพิ่มระยะห่างจากส่วนก่อนหน้า */
+}
+
+/* ปรับการจัดรูปแบบของปุ่ม Save และ Done */
+button.save-done-button {
+  background-color: #48bb78; /* สีเขียวสำหรับปุ่ม Save และ Done */
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  margin: 5px;
+  width: 150px;
+}
+
+button.save-done-button:hover {
+  background-color: #38a169; /* สีเขียวเมื่อ hover */
+  transform: translateY(-2px); /* เอฟเฟกต์เด้ง */
+}
+
+button.save-done-button:active {
+  background-color: #2f855a; /* สีเขียวเข้มเมื่อคลิก */
+  transform: translateY(2px); /* เอฟเฟกต์เมื่อคลิก */
+}
+
+/* ปรับการจัดรูปแบบของปุ่ม Back */
+button.back-button {
+  background-color: #e53e3e; /* สีแดงสำหรับปุ่ม Back */
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  margin: 5px;
+  width: 150px;
+}
+
+button.back-button:hover {
+  background-color: #c53030; /* สีแดงเข้มเมื่อ hover */
+  transform: translateY(-2px); /* เอฟเฟกต์เด้ง */
+}
+
+button.back-button:active {
+  background-color: #9b2c2c; /* สีแดงเข้มเมื่อคลิก */
+  transform: translateY(2px); /* เอฟเฟกต์เมื่อคลิก */
+}
+
+/* ปรับการจัดรูปแบบของส่วนที่มีรูปภาพ */
+.em-infor-image-section {
+  display: flex; /* ใช้ Flexbox */
+  flex-direction: column; /* เรียงให้เป็นคอลัมน์ (รูปภาพอยู่เหนือปุ่ม) */
+  justify-content: center; /* จัดให้อยู่กลางในแนวตั้ง */
+  align-items: center; /* จัดให้อยู่กลางในแนวนอน */
+  margin-bottom: 20px; /* ระยะห่างจากส่วนอื่น */
+}
+
+/* ปรับกรอบของภาพ */
+.em-infor-image-placeholder {
+  display: flex;
+  justify-content: center; /* จัดรูปภาพให้อยู่กลางแนวนอน */
+  align-items: center; /* จัดรูปภาพให้อยู่กลางแนวตั้ง */
+  background-color: #e2e8f0; /* สีพื้นหลังกรอบ */
+  height: 350px; /* ความสูงของกรอบ */
+  width: 60%; /* ความกว้างของกรอบ */
+  border-radius: 12px; /* มุมโค้ง */
+  border: 2px dashed #cbd5e0; /* ขอบกรอบ */
+  margin-bottom: 15px; /* ระยะห่างจากปุ่ม */
+  overflow: hidden; /* ซ่อนส่วนที่เกินออกจากกรอบ */
+}
+
+.em-infor-uploaded-image {
+  width: 100%; /* ทำให้รูปภาพขยายเต็มกรอบ */
+  height: 100%; /* ความสูงเต็มกรอบ */
+  object-fit: cover; /* ทำให้รูปภาพไม่บิดเบือน และเติมเต็มกรอบ */
+  border-radius: 10px; /* มุมโค้งของรูปภาพ */
+}
+
+/* ---------------------------- Responsive Styles ---------------------------- */
+
+/* สำหรับหน้าจอขนาดเล็ก (มือถือ) */
+@media (max-width: 768px) {
+  /* จัดการพื้นหลังของหน้าให้เต็มหน้าจอ */
+  .em-infor-background {
+    height: auto;
+    background-attachment: scroll; /* ให้พื้นหลังเลื่อนตามหน้า */
+  }
+}
+/* ปรับขนาด container ให้เหมาะสม */
+.em-infor-container {
+  width: 90%; /* กว้างขึ้นบนมือถือ */
+  height: auto; /* ปรับความสูงอัตโนมัติ */
+  padding: 20px; /* ลด padding */
+}
+
+/* ข้อความส่วนหัว */
+.em-infor-head {
+  font-size: 1.5rem; /* ลดขนาดฟอนต์ */
+  padding: 10px 20px; /* ลด padding */
+}
+
+/* จัดรูปแบบของ input group ให้อยู่ในบรรทัดเดียวกัน */
+.em-infor-input-group,
+.em-infor-double-input,
+.em-infor-salary-benefit-input-group {
+  flex-direction: column; /* เปลี่ยนเป็นแนวตั้ง */
+  gap: 10px; /* ลดระยะห่างระหว่างช่อง */
+}
+
+.em-infor-input-half,
+.em-infor-salary-benefit-input-half {
+  flex: none; /* ทำให้ไม่ขยายเต็ม */
+  width: 100%; /* ขนาดเต็ม */
+}
+
+/* ปรับขนาด input fields */
+.em-infor-input-field,
+.em-infor-salary-benefit-input-field {
+  font-size: 14px; /* ลดขนาดฟอนต์ */
+  padding: 8px; /* ลด padding */
+}
+
+/* ปรับขนาดของปุ่ม */
+button.em-infor-action-button,
+button.save-done-button,
+button.back-button {
+  width: 100%; /* ขยายปุ่มให้เต็มความกว้าง */
+  font-size: 14px; /* ลดขนาดฟอนต์ */
+}
+
+/* ปรับรูปภาพ */
+.em-infor-image-placeholder {
+  width: 100%; /* ทำให้กรอบภาพขยายเต็ม */
+  height: 250px; /* ปรับความสูง */
+}
+
+.em-infor-uploaded-image {
+  object-fit: cover; /* ปรับให้ภาพเต็มกรอบ */
+}
+
+/* ปรับข้อความ label */
+.em-infor-input-group label,
+.em-infor-salary-benefit-label {
+  font-size: 14px; /* ลดขนาดฟอนต์ */
+}
+
+/* ปรับข้อความในปุ่ม */
+button.em-infor-action-button:hover,
+button.save-done-button:hover,
+button.back-button:hover {
+  transform: scale(1); /* ไม่ให้ปุ่มเด้งมากเกินไป */
+}
+
+/* สำหรับหน้าจอขนาดกลาง (แท็บเล็ต) */
+@media (max-width: 1024px) {
+  /* ปรับขนาด container ให้เหมาะสม */
+  .em-infor-container {
+    width: 70%; /* ลดขนาดลงจากเดิม */
+    padding: 25px; /* ลด padding ลง */
+  }
+
+  .em-infor-head {
+    font-size: 1.7rem; /* ปรับขนาดฟอนต์ให้เหมาะสม */
+    padding: 10px 20px; /* ลด padding */
+  }
+
+  /* จัดรูปแบบของ input group ให้อยู่ในบรรทัดเดียวกัน */
+  .em-infor-double-input,
+  .em-infor-salary-benefit-input-group {
+    flex-direction: column; /* เปลี่ยนเป็นแนวตั้ง */
+    gap: 12px;
+  }
+
+  /* ปรับขนาด input fields */
+  .em-infor-input-field,
+  .em-infor-salary-benefit-input-field {
+    font-size: 15px; /* ปรับขนาดฟอนต์ */
+  }
+
+  /* ปรับขนาดปุ่ม */
+  button.em-infor-action-button,
+  button.save-done-button,
+  button.back-button {
+    width: 48%; /* ปรับให้มีสองปุ่มในบรรทัดเดียว */
+  }
+
+  /* ปรับกรอบรูป */
+  .em-infor-image-placeholder {
+    width: 80%; /* ลดขนาดกรอบ */
+    height: 300px; /* ปรับขนาดให้พอเหมาะ */
+  }
+}
+
+/* สำหรับหน้าจอขนาดใหญ่ (เดสก์ท็อป) */
+@media (min-width: 1025px) {
+  /* ปรับขนาด container ให้เต็ม */
+  .em-infor-container {
+    width: 50%; /* กว้างเหมือนเดิม */
+    padding: 30px; /* ใช้ padding เดิม */
+  }
+
+  .em-infor-head {
+    font-size: 1.8rem; /* ขนาดฟอนต์ใหญ่ตามเดิม */
+    padding: 12px 24px;
+  }
+
+  .em-infor-input-group,
+  .em-infor-double-input,
+  .em-infor-salary-benefit-input-group {
+    flex-direction: row; /* ใช้แนวนอน */
+    gap: 15px; /* ระยะห่างที่พอเหมาะ */
+  }
+
+  .em-infor-input-half,
+  .em-infor-salary-benefit-input-half {
+    flex: 1; /* ขยายให้เต็มความกว้าง */
+  }
+
+  button.em-infor-action-button,
+  button.save-done-button,
+  button.back-button {
+    width: 150px; /* ขนาดปุ่มตามเดิม */
+  }
+
+  .em-infor-image-placeholder {
+    width: 60%; /* ขนาดกรอบภาพ */
+    height: 350px; /* ขนาดกรอบภาพ */
+  }
+}

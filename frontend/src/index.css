@@ -1,4 +1,4 @@
-/* พื้นฐาน */
+/*
 body {
   margin: 0;
   padding: 0;
@@ -21,7 +21,6 @@ body {
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
 }
 
-/* ส่วนหัว */
 .header h1 {
   font-weight: bold;
   margin: 0;
@@ -38,7 +37,6 @@ body {
   color: rgba(255, 255, 255, 0.8);
 }
 
-/* ปุ่ม */
 .button {
   display: flex;
   flex-direction: column;
@@ -66,7 +64,6 @@ body {
   box-shadow: 0 8px 20px rgba(255, 255, 255, 0.4);
 }
 
-/* ปรับความสวยงามเมื่ออยู่บนอุปกรณ์มือถือ */
 @media screen and (max-width: 480px) {
   .header h1 {
     font-size: 36px;
@@ -81,3 +78,4 @@ body {
     font-size: 14px;
   }
 }
+  */

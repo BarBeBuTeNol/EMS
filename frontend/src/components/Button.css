@@ -1,0 +1,47 @@
+.button-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-top: 30px;
+  align-items: center; /* Center the buttons */
+}
+
+.button {
+  padding: 15px 35px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #ffffff;
+  background: linear-gradient(135deg, #0062cc, #0056b3); /* Gradient ที่เรียบง่าย */
+  border: none;
+  border-radius: 50px; /* ทำให้ปุ่มดูโค้งมน */
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Shadow แบบเบา */
+  transition: all 0.3s ease-in-out;
+  transform: scale(1); /* ตั้งค่าเริ่มต้น */
+  text-transform: uppercase; /* ตัวอักษรเป็นตัวพิมพ์ใหญ่ */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* เปลี่ยนฟอนต์ให้ทันสมัย */
+}
+
+.button:hover {
+  background: linear-gradient(135deg, #0056b3, #004494); /* Gradient เข้มขึ้นเมื่อ Hover */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Shadow ชัดขึ้น */
+  transform: translateY(-5px) scale(1.05); /* ขยับขึ้นเล็กน้อยและขยายขนาด */
+}
+
+.button:active {
+  transform: translateY(0) scale(1); /* กลับมาอยู่ตำแหน่งเดิมและขนาดเดิมเมื่อกด */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.button:focus {
+  outline: none; /* ไม่ให้มีขอบตอน focus */
+  box-shadow: 0 0 0 3px rgba(0, 102, 204, 0.5); /* เพิ่มเงาตอน focus */
+}
+
+.button:disabled {
+  background: #d3d3d3; /* สีพื้นหลังเมื่อปุ่มถูกปิดใช้งาน */
+  color: #a0a0a0; /* เปลี่ยนสีข้อความ */
+  cursor: not-allowed; /* แสดง cursor แบบไม่สามารถคลิกได้ */
+  box-shadow: none; /* ไม่ให้มีเงาเมื่อ disabled */
+}
+
